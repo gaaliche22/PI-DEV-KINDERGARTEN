@@ -26,6 +26,7 @@ public class User implements Serializable {
 	@Column(name = "username")
 	@NotEmpty(message = "Please provide your first name")
 	private String username;
+
 	//@NotNull(message="First name is compulsory")
 	@Column(name = "nom")
 	@NotEmpty(message = "Please provide your first name")
@@ -37,6 +38,7 @@ public class User implements Serializable {
 	//@NotNull(message="Password is compulsory")
 	@Column(name = "password")
 	@Size(min=5, max=16, message="Password should be at least 5 characters")
+
 	private String password;
 	//@NotNull(message="Email is compulsory")
 	@Column(name = "email", nullable=false, unique= true)
@@ -47,27 +49,11 @@ public class User implements Serializable {
 	private Long numtel;
 	@Column(name = "status")
 	private String status;
+
+
 	@Transient
 	private String passwordConfirm;
 	private Role roles;
-	public User(Long id, @NotEmpty(message = "Please provide your first name") String username,
-			@NotEmpty(message = "Please provide your first name") String nom,
-			@NotEmpty(message = "Please provide your last name") String prenom,
-			@Size(min = 5, max = 16, message = "Password should be at least 5 characters") String password,
-			@Email(message = "Please provide a valid e-mail") @NotEmpty(message = "Please provide an e-mail") String email,
-			@Pattern(regexp = "(^$|[0-9]{8}", message = "Mobile number must be 8 digits") Long numtel, String status,
-			String passwordConfirm, Role roles) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.password = password;
-		this.email = email;
-		this.numtel = numtel;
-		this.status = status;
-		this.passwordConfirm = passwordConfirm;
-		this.roles = roles;
-	}
+
 	
 }
