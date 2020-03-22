@@ -17,13 +17,10 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String username;
-	private String nom;
-	private String prenom;
 	private String password;
-	private String email;
-	private Long numtel;
-	
 	@Transient
 	private String passwordConfirm;
 	private Role roles;
+	
+	
 }
